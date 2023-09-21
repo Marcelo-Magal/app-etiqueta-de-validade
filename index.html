@@ -1,0 +1,55 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplicativo de Etiqueta de Alimentos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat&family=Libre+Baskerville:ital@1&family=Roboto&family=Satisfy&family=Space+Grotesk:wght@300&display=swap" rel="stylesheet">
+  <div class="container">
+    <h1>Etiqueta: Validade de Alimentos</h1>
+    <div class="form">
+      <label for="condicao">Condição de Armazenamento:</label>
+      <select id="condicao">
+        <option value="Refrigerado">Refrigerado</option>
+        <option value="Congelado -10°C a -18°C">Congelado -10°C a -18°C</option>
+        <option value="Congelado Temperatura menor que -18°C">Congelado Temperatura menor que -18°C</option>
+        <option value="Seco (Após Abertura da Embalagem)">Seco (Após Abertura da Embalagem)</option>
+      </select>
+
+      <label for="alimento">Alimento:</label>
+      <select id="alimento">
+        <!-- As opções serão preenchidas dinamicamente pelo JavaScript -->
+      </select>
+      <input type="text" id="alimento-personalizado" placeholder="Digite o nome do alimento" style="display: none;" />
+
+
+      <div class="row">
+        <label for="data-inicial" class="label-inline">Data Inicial:</label>
+        <input type="date" id="data-inicial">
+      </div>
+
+      <div class="row">
+        <button id="calcular">Calcular Data de Validade</button>
+      </div>
+    </div>
+    <div id="resultado">
+      <!-- Local para exibir o resultado da data de validade -->
+      <div class="etiqueta">
+        <div class="linha">Data de Validade:</div>
+        <div class="linha">DD/MM/AAAA</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
