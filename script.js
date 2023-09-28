@@ -4,23 +4,33 @@ const alimentoSelect = document.getElementById('alimento');
 const dataInicialInput = document.getElementById('data-inicial');
 const calcularButton = document.getElementById('calcular');
 const resultadoDiv = document.getElementById('resultado');
+const alimentoPersonalizadoInput = document.getElementById('alimento-personalizado');
+
+if (!condicaoSelect || !alimentoSelect || !dataInicialInput || !calcularButton || !resultadoDiv || !alimentoPersonalizadoInput) {
+  console.error("Um ou mais elementos não foram encontrados.");
+}
+
 
 const alimentosPorCondicao = {
   'Refrigerado': [
-    'Pescados e seus produtos manipulados crus',
-    'Carnes (bovina, suína, aves, etc.)',
-    'Sobremesas, frios e laticínios manipulados',
-    'Salsichas e conservados',
-    'Folhosos e frutas sensíveis',
-    'Outras frutas e legumes',
+    'Alimentos enlatados',
     'Alimentos pós-cocção',
-    'Pescados pós-cocção',
-    'Ovos',
-    'Manteiga',
+    'Carnes (bovina, suína, aves, etc.)',
+    'Carnes e frios enlatados',
     'Creme de leite fresco',
+    'Folhosos e frutas sensíveis',
+    'Maionese e misturas de maionese com outros alimentos',
+    'Manteiga',
+    'Ovos',
+    'Outras frutas e legumes',
+    'Pescados e seus produtos manipulados crus',
+    'Pescados pós-cocção',
     'Queijos duros',
     'Queijos frescos ou macios',
-    'Maionese e misturas de maionese com outros alimentos'
+    'Salsichas e conservados',
+    'Sobremesas, frios e laticínios manipulados',
+    'Sucos enlatados e engarrafados'
+
   ],
   'Congelado -10°C a -18°C': [
     'Todos os alimentos'
@@ -73,84 +83,156 @@ condicaoSelect.addEventListener('change', () => {
 // Inicializar as opções de alimentos com base na condição inicial selecionada
 condicaoSelect.dispatchEvent(new Event('change'));
 
-calcularButton.addEventListener('click', () => {
-  const condicaoSelecionada = condicaoSelect.value;
-  const alimentoPersonalizadoInput = document.getElementById('alimento-personalizado');
-  const alimentoSelecionado = alimentoPersonalizadoInput.style.display === 'block' ? alimentoPersonalizadoInput.value : alimentoSelect.value;
-  
+const calcularValidade = () => {
   let tempoMaximoArmazenamento = 0;
+  const condicaoSelecionada = condicaoSelect.value;
+  const alimentoSelecionado = alimentoSelect.value;
 
   // Definindo as regras de validade baseadas na condição e no alimento selecionados
   if (condicaoSelecionada === 'Refrigerado') {
-    if (alimentoSelecionado === 'Pescados e seus produtos manipulados crus') {
-      tempoMaximoArmazenamento = 1;
-    } else if (alimentoSelecionado === 'Carnes (bovina, suína, aves, etc.)') {
-      tempoMaximoArmazenamento = 3;
-    } else if (alimentoSelecionado === 'Sobremesas, frios e laticínios manipulados') {
-      tempoMaximoArmazenamento = 1;
-    } else if (alimentoSelecionado === 'Salsichas e conservados') {
-      tempoMaximoArmazenamento = 7;
-    } else if (alimentoSelecionado === 'Folhosos e frutas sensíveis') {
-      tempoMaximoArmazenamento = 3;
-    } else if (alimentoSelecionado === 'Outras frutas e legumes') {
-      tempoMaximoArmazenamento = 7;
-    } else if (alimentoSelecionado === 'Alimentos pós-cocção') {
-      tempoMaximoArmazenamento = 3;
-    } else if (alimentoSelecionado === 'Pescados pós-cocção') {
-      tempoMaximoArmazenamento = 1;
-    } else if (alimentoSelecionado === 'Ovos') {
-      tempoMaximoArmazenamento = 14;
-    } else if (alimentoSelecionado === 'Manteiga') {
-      tempoMaximoArmazenamento = 14;
-    } else if (alimentoSelecionado === 'Creme de leite fresco') {
-      tempoMaximoArmazenamento = 3;
-    } else if (alimentoSelecionado === 'Queijos duros') {
-      tempoMaximoArmazenamento = 21;
-    } else if (alimentoSelecionado === 'Queijos frescos ou macios') {
-      tempoMaximoArmazenamento = 7;
-    } else if (alimentoSelecionado === 'Maionese e misturas de maionese com outros alimentos') {
-      tempoMaximoArmazenamento = 1;
+    switch (alimentoSelecionado) {
+      case 'Pescados e seus produtos manipulados crus':
+        tempoMaximoArmazenamento = 1;
+        break;
+      case 'Carnes (bovina, suína, aves, etc.)':
+        tempoMaximoArmazenamento = 3;
+        break;
+      case 'Sobremesas, frios e laticínios manipulados':
+        tempoMaximoArmazenamento = 1;
+        break;
+      case 'Salsichas e conservados':
+        tempoMaximoArmazenamento = 7;
+        break;
+      case 'Folhosos e frutas sensíveis':
+        tempoMaximoArmazenamento = 3;
+        break;
+      case 'Outras frutas e legumes':
+        tempoMaximoArmazenamento = 7;
+        break;
+      case 'Alimentos pós-cocção':
+        tempoMaximoArmazenamento = 3;
+        break;
+      case 'Pescados pós-cocção':
+        tempoMaximoArmazenamento = 1;
+        break;
+      case 'Ovos':
+        tempoMaximoArmazenamento = 14;
+        break;
+      case 'Manteiga':
+        tempoMaximoArmazenamento = 14;
+        break;
+      case 'Creme de leite fresco':
+        tempoMaximoArmazenamento = 3;
+        break;
+      case 'Queijos duros':
+        tempoMaximoArmazenamento = 21;
+        break;
+      case 'Queijos frescos ou macios':
+        tempoMaximoArmazenamento = 7;
+        break;
+      case 'Maionese e misturas de maionese com outros alimentos':
+        tempoMaximoArmazenamento = 1;
+        break;
+      case 'Alimentos enlatados':
+        tempoMaximoArmazenamento = 3;
+        break;
+      case 'Carnes e frios enlatados':
+        tempoMaximoArmazenamento = 3;
+        break;
+      case 'Sucos enlatados e engarrafados':
+        tempoMaximoArmazenamento = 3;
+        break;
+      default:
+        tempoMaximoArmazenamento = 0;
     }
   } else if (condicaoSelecionada === 'Congelado -10°C a -18°C') {
     tempoMaximoArmazenamento = 30;
   } else if (condicaoSelecionada === 'Congelado Temperatura menor que -18°C') {
     tempoMaximoArmazenamento = 90;
   } else if (condicaoSelecionada === 'Seco (Após Abertura da Embalagem)') {
-    if (alimentoSelecionado === 'Alimentos enlatados') {
-      tempoMaximoArmazenamento = 3;
-    } else if (alimentoSelecionado === 'Carnes e frios enlatados') {
-      tempoMaximoArmazenamento = 3;
-    } else if (alimentoSelecionado === 'Farinhas') {
-      tempoMaximoArmazenamento = 30;
-    } else if (alimentoSelecionado === 'Sucos enlatados e engarrafados') {
-      tempoMaximoArmazenamento = 3;
-    } else if (alimentoSelecionado === 'Temperos em pó') {
-      tempoMaximoArmazenamento = 30;
-    } else if (alimentoSelecionado === 'Sal') {
-      tempoMaximoArmazenamento = 30;
-    } else if (alimentoSelecionado === 'Açúcar') {
-      tempoMaximoArmazenamento = 30;
-    } else if (alimentoSelecionado === 'Fermento químico em pó') {
-      tempoMaximoArmazenamento = 30;
-    } else if (alimentoSelecionado === 'Bicarbonato de sódio') {
-      tempoMaximoArmazenamento = 30;
+    switch (alimentoSelecionado) {
+      case 'Alimentos enlatados':
+        tempoMaximoArmazenamento = 3;
+        break;
+      case 'Carnes e frios enlatados':
+        tempoMaximoArmazenamento = 3;
+        break;
+      case 'Farinhas':
+        tempoMaximoArmazenamento = 30;
+        break;
+      case 'Sucos enlatados e engarrafados':
+        tempoMaximoArmazenamento = 3;
+        break;
+      case 'Temperos em pó':
+        tempoMaximoArmazenamento = 30;
+        break;
+      case 'Sal':
+        tempoMaximoArmazenamento = 30;
+        break;
+      case 'Açúcar':
+        tempoMaximoArmazenamento = 30;
+        break;
+      case 'Fermento químico em pó':
+        tempoMaximoArmazenamento = 30;
+        break;
+      case 'Bicarbonato de sódio':
+        tempoMaximoArmazenamento = 30;
+        break;
+      default:
+        tempoMaximoArmazenamento = 0;
     }
   }
+  return tempoMaximoArmazenamento;    
+};
 
-  if (tempoMaximoArmazenamento === 0) {
-    resultadoDiv.textContent = 'Regras de validade não definidas para o alimento e condição selecionados.';
-  } else {
-    const dataInicial = new Date(dataInicialInput.value + "T00:00");
-    const dataValidade = new Date(dataInicial);
-    dataValidade.setDate(dataValidade.getDate() + tempoMaximoArmazenamento);
-  
-    resultadoDiv.innerHTML = `
-      <div class="etiqueta">
-        <p>Produto: ${alimentoSelecionado}</p>
-        <p>${condicaoSelecionada}</p>
-        <p>Fabricação: ${dataInicial.toLocaleDateString()}</p>
-        <p>Validade: ${dataValidade.toLocaleDateString()}</p>
-      </div>
-    `;
+const handleCalculate = () => {
+  const selectedFood = alimentoSelect.value;
+  const selectedCondition = condicaoSelect.value;
+
+  if (!dataInicialInput.value) {
+    alert('Erro: Por favor, selecione a data de fabricação antes de imprimir a etiqueta.');
+    return;
+}
+
+  if (!selectedFood || selectedFood === 'Selecione um produto') {
+    alert('Erro: Por favor, selecione um produto antes de imprimir a etiqueta.');
+    return;
   }
-});
+
+  const calculatedExpiryDate = calcularValidade();
+  if (calculatedExpiryDate === 0) {
+    alert('Erro: Regras de validade não definidas para o produto e condição selecionados.');
+    return;
+  }
+
+  let newConditionForDisplay = selectedCondition;
+
+  if (selectedCondition === 'Seco (Após Abertura da Embalagem)' && 
+      (selectedFood === 'Alimentos enlatados' || 
+       selectedFood === 'Carnes e frios enlatados' || 
+       selectedFood === 'Sucos enlatados e engarrafados')) {
+        newConditionForDisplay = 'Refrigerado (Após a abertura da embalagem)';
+  }
+
+  if (selectedCondition === 'Refrigerado' && 
+      (selectedFood === 'Alimentos enlatados' || 
+       selectedFood === 'Carnes e frios enlatados' || 
+       selectedFood === 'Sucos enlatados e engarrafados')) {
+        newConditionForDisplay = 'Refrigerado (Após a abertura da embalagem)';
+  }
+
+  const dataInicial = new Date(dataInicialInput.value + "T00:00");
+  const dataValidade = new Date(dataInicial);
+  dataValidade.setDate(dataValidade.getDate() + calculatedExpiryDate);
+
+  resultadoDiv.innerHTML = `
+      <div class="etiqueta">
+          <p>Produto: ${selectedFood}</p>
+          <p>${newConditionForDisplay}</p>
+          <p>Fabricação: ${dataInicial.toLocaleDateString()}</p>
+          <p>Validade: ${dataValidade.toLocaleDateString()}</p>
+      </div>
+  `;
+};  
+
+calcularButton.addEventListener('click', handleCalculate);
