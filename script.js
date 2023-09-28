@@ -1,10 +1,23 @@
 // frontend/script.js
+
+function getDataAtualFormatada() {
+  const dataAtual = new Date();
+  const dia = String(dataAtual.getDate()).padStart(2, '0');
+  const mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // Os meses são indexados de 0 (janeiro) a 11 (dezembro), então adicionamos 1.
+  const ano = dataAtual.getFullYear();
+
+  return `${ano}-${mes}-${dia}`;
+}
+
+
 const condicaoSelect = document.getElementById('condicao');
 const alimentoSelect = document.getElementById('alimento');
 const dataInicialInput = document.getElementById('data-inicial');
 const calcularButton = document.getElementById('calcular');
 const resultadoDiv = document.getElementById('resultado');
 const alimentoPersonalizadoInput = document.getElementById('alimento-personalizado');
+
+dataInicialInput.value = getDataAtualFormatada();
 
 if (!condicaoSelect || !alimentoSelect || !dataInicialInput || !calcularButton || !resultadoDiv || !alimentoPersonalizadoInput) {
   console.error("Um ou mais elementos não foram encontrados.");
@@ -187,7 +200,7 @@ const calcularValidade = () => {
 
 const handleCalculate = () => {
   const selectedFood = alimentoSelect.value;
-  const selectedCondition = condicaoSelect.value;
+  let selectedCondition = condicaoSelect.value;
 
   if (!dataInicialInput.value) {
     alert('Erro: Por favor, selecione a data de fabricação antes de imprimir a etiqueta.');
@@ -204,8 +217,6 @@ const handleCalculate = () => {
     alert('Erro: Regras de validade não definidas para o produto e condição selecionados.');
     return;
   }
-
-  let newConditionForDisplay = selectedCondition;
 
   if (selectedCondition === 'Seco (Após Abertura da Embalagem)' && 
       (selectedFood === 'Alimentos enlatados' || 
@@ -226,13 +237,13 @@ const handleCalculate = () => {
   dataValidade.setDate(dataValidade.getDate() + calculatedExpiryDate);
 
   resultadoDiv.innerHTML = `
-      <div class="etiqueta">
-          <p>Produto: ${selectedFood}</p>
-          <p>${newConditionForDisplay}</p>
-          <p>Fabricação: ${dataInicial.toLocaleDateString()}</p>
-          <p>Validade: ${dataValidade.toLocaleDateString()}</p>
-      </div>
-  `;
+    <div class="etiqueta">
+        <p>Produto: <span class="highlight">${selectedFood}</span></p>
+        <p>Aramenamento: <span class="highlight">${selectedCondition}</span></p>
+        <p>Fabricação: <span class="highlight">${dataInicial.toLocaleDateString()}</span></p>
+        <p>Validade: <span class="highlight">${dataValidade.toLocaleDateString()}</span></p>
+    </div>
+`;
 };  
 
 calcularButton.addEventListener('click', handleCalculate);

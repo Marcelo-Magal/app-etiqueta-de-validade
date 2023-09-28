@@ -1,28 +1,25 @@
-/* frontend/style.css */
-
-
+/* Base Styles */
 body {
-  font-family: 'Caveat', cursive;
-  font-family: 'Libre Baskerville', serif;
   font-family: 'Roboto', sans-serif;
-  font-family: 'Satisfy', cursive;
-  font-family: 'Space Grotesk', sans-serif;
 }
 
+/* Container Styles */
 .container {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #e0e0e0db;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Heading Styles */
 h1 {
   margin-top: -10px;
 }
 
+/* Form Styles */
 .form {
   margin-bottom: 20px;
   display: flex;
@@ -33,11 +30,6 @@ h1 {
   display: flex;
   align-items: center;
   gap: 10px;
-  
-  }
-
-.label-inline {
-  margin-bottom: 0;
 }
 
 .form .row input[type="date"],
@@ -47,13 +39,7 @@ h1 {
 
 #condicao, #alimento, #data-inicial, #calcular {
   border-radius: 5px;
-  font-family: 'Caveat', cursive;
-  font-family: 'Libre Baskerville', serif;
   font-family: 'Roboto', sans-serif;
-  font-family: 'Satisfy', cursive;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: bold
-  
 }
 
 label {
@@ -61,17 +47,13 @@ label {
   margin-bottom: 5px;
 }
 
-#data-inicial {
-  width: 100%;
-}
-
-select,
-input[type="date"] {
+select, input[type="date"] {
   width: 100%;
   padding: 5px;
   margin-bottom: 10px;
 }
 
+/* Button Styles */
 button {
   background-color: #ff4b4b;
   color: #fff;
@@ -80,25 +62,32 @@ button {
   cursor: pointer;
 }
 
+/* Result Styles */
 #resultado {
   font-weight: bold;
   margin-top: 10px;
-  background-color: white; /* Alterado para um fundo branco */
-  border: 2px solid red; /* Adicionado uma borda vermelha */
-  padding: 20px; /* Adicionado padding */
-  color: red; /* Alterado a cor do texto para vermelho */
-  text-align: left; /* Centralizado o texto */
-  border-radius: 5px;
-  
+  padding: 20px;
+  background-color: white;
+  color: red;
+  text-align: left;
 }
 
+/* Label Styles */
 .etiqueta {
-  border: 1px solid red; /* Adicionado uma borda vermelha fina ao redor da etiqueta */
+  border: 1px solid red;
   padding: 10px;
   border-radius: 5px;
-  
+   ;
 }
 
 .etiqueta p {
   margin: 5px 0;
+}
+
+/* Highlight Styles */
+.highlight {
+  font-size: 20px;
+  font-family: 'Satisfy', cursive;
+  color: #03089f;
+  margin-left: 5px;
 }
