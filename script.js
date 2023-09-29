@@ -239,7 +239,7 @@ const handleCalculate = () => {
   resultadoDiv.innerHTML = `
     <div class="etiqueta">
         <p>Produto: <span class="highlight">${selectedFood}</span></p>
-        <p>Aramenamento: <span class="highlight">${selectedCondition}</span></p>
+        <p>Armazenamento: <span class="highlight">${selectedCondition}</span></p>
         <p>Fabricação: <span class="highlight">${dataInicial.toLocaleDateString()}</span></p>
         <p>Validade: <span class="highlight">${dataValidade.toLocaleDateString()}</span></p>
     </div>

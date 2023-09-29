@@ -86,8 +86,14 @@ button {
 
 /* Highlight Styles */
 .highlight {
-  font-size: 20px;
+  font-size: 25px;
   font-family: 'Satisfy', cursive;
   color: #03089f;
   margin-left: 5px;
+}
+#calcular {
+  font-size: 20px;
+}
+#etiqueta {
+  font-family: 'Space Grotesk', sans-serif;
 }
