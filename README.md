@@ -2,38 +2,38 @@
 ![Stars](https://img.shields.io/github/stars/Marcelo-Magal/app-etiqueta-de-validade?style=social)
 
 
-# app-etiqueta-de-validade
-Aplicativo de Etiqueta de Alimentos - Aplicativo web para calcular a data de validade de alimentos com base em condições de armazenamento. Selecione entre opções como refrigerado, congelado ou seco e obtenha a etiqueta de validade.
+# Aplicativo de Etiqueta de Alimentos
 
-[Teste meu App Etiqueta de Validade](https://marcelo-magal.github.io/app-etiqueta-de-validade/)
+**Transforme o modo como você gerencia a validade dos alimentos!** Nosso aplicativo calcula a data de validade de alimentos com base em condições de armazenamento variadas, como refrigerado, congelado ou seco. Com um toque de personalização e interatividade, facilitamos o seu dia a dia e elevamos o padrão de segurança alimentar!
 
 ## Tecnologias e Conhecimentos Utilizados
-
-Este aplicativo foi desenvolvido com um conjunto diversificado de tecnologias e práticas de programação. Abaixo estão os detalhes:
+Este aplicativo é um fruto da dedicação ao estudo de uma nova profissão, desenvolvido com uma variedade de tecnologias e práticas inovadoras de programação:
 
 ### Frontend
 
 #### HTML5
-- **Estrutura Semântica**: Utilização de elementos semânticos para melhor acessibilidade e SEO.
-- **Meta Tags**: Implementação de meta tags para descrição e otimização de SEO.
+- **Formulários e Entradas Personalizadas**: Criamos formulários intuitivos, garantindo flexibilidade e adaptabilidade às suas necessidades.
+- **Estrutura Semântica**: Utilizamos elementos semânticos para promover acessibilidade e uma melhor otimização SEO.
+- **Meta Tags**: Implementamos meta tags detalhadas para aprimorar a visibilidade e otimização nos motores de busca.
 
 #### CSS3
-- **Design Responsivo**: Uso de media queries para garantir que o aplicativo seja exibido corretamente em diferentes dispositivos.
-- **Estilização Avançada**: Utilização de classes e IDs para estilização específica de elementos.
-- **Fontes Externas**: Integração com o Google Fonts para tipografia.
+- **Design Responsivo**: Nosso aplicativo se adapta perfeitamente a diferentes dispositivos, graças ao uso inteligente de media queries.
+- **Estilização Avançada**: Aplicamos um design único com classes e IDs personalizadas, enriquecendo a experiência visual.
+- **Fontes Externas**: Integramos com o Google Fonts, escolhendo fontes como 'Roboto', 'Satisfy', e 'Space Grotesk' para uma estética agradável.
 
 #### JavaScript
-- **Manipulação do DOM**: Uso extensivo de JavaScript para manipular o DOM e tornar a interface do usuário interativa.
-- **Event Handling**: Implementação de ouvintes de eventos para ações do usuário, como seleção de condições de armazenamento e alimentos.
-- **Lógica de Negócios**: Algoritmos para calcular a data de validade com base em diferentes condições e tipos de alimentos.
-- **Validação de Formulário**: Verificações de validade de dados antes do cálculo para evitar erros.
+- **Manipulação do DOM e Interatividade**: O aplicativo é uma experiência viva! Atualizamos dinamicamente as opções de alimentos com base nas condições de armazenamento selecionadas, tornando cada interação única.
+- **Lógica de Negócios**: Nosso algoritmo personalizado calcula a data de validade considerando diversas condições e tipos de alimentos.
+- **Data Atual Automática**: Toda vez que o aplicativo é aberto, a data é definida automaticamente para o dia atual. Essa funcionalidade agiliza o uso e garante a precisão essencial para a segurança alimentar.
+- **Validação de Formulário e Mensagens de Erro**: Implementamos verificações de validade e exibimos mensagens de erro claras, orientando o usuário para uma experiência sem falhas.
 
 ### Bibliotecas e Frameworks
-- **Google Fonts**: Utilizado para melhorar a estética do aplicativo, tornando a interface do usuário mais agradável.
-
-### APIs e Serviços Externos
-- **Google Ads**: Implementação de anúncios para monetização, usando carregamento assíncrono para melhorar o desempenho.
+- **Google Fonts**: Escolhemos fontes que dão vida ao aplicativo, tornando a interface do usuário elegante e fácil de usar.
 
 ### Outros
-- **Otimização de Performance**: Uso de "preconnect" para recursos externos e carregamento assíncrono de scripts.
-- **Conhecimento em Segurança Alimentar**: O aplicativo foi desenvolvido com base em conhecimentos de segurança alimentar, tornando-o uma ferramenta útil para profissionais da área.
+- **Otimização de Performance**: Usamos técnicas como "preconnect" para recursos externos e carregamento assíncrono de scripts.
+- **Conhecimento em Segurança Alimentar**: Este aplicativo foi criado com um profundo entendimento de segurança alimentar, tornando-o uma ferramenta confiável para profissionais e entusiastas.
+
+## Faça Parte da Nossa Jornada
+Estamos constantemente buscando melhorar e inovar. Se você tem ideias ou sugestões, adoraríamos ouvir! Juntos, podemos tornar a gestão da validade dos alimentos algo simples, eficiente e seguro.
+
